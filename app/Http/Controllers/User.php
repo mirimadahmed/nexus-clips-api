@@ -15,13 +15,13 @@ class User extends Controller
                 return json_encode(array('error' => 0, 'user' => $users[0]));
             }
         }
-        return json_encode(array('error' => 1, 'message' => 'Invalid email/password.'));
+        return json_encode(array('error' => 1, 'message' => 'Correo o contraseña inválidos'));
     }
 
     public function register(UserRequest $request) {
         $users = ModelsUser::where('email', '=', $request->email)->get();
         if($users && count($users) > 0) {
-            return json_encode(array('error' => 1, 'message' => 'Email already exist.'));
+            return json_encode(array('error' => 1, 'message' => 'Este correo ya existe'));
         }
 
         $user = new ModelsUser();
