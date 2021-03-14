@@ -10,16 +10,12 @@ class Clips extends Controller
 {
     public function get_user_clips(Request $request) {
         $clips = ModelsClips::where('user_id', '=', $request->user_id)->where('clip_status','=','ACTIVE')->orderBy('created_at', 'DESC')->paginate(10);
+        if($request->page == 1){
+            $user = new SessionUser();
+            $user->user_id = $request->user_id;
+            $user->date = Carbon::now();
+            $user->save();
+        }
         return json_encode($clips);
-        // if($request->page == 1){
-        //     $user = new SessionUser();
-        //     $user->user_id = $request->user_id;
-        //     $user->date = $request->Carbon::now();
-        //     $user->save();
-        // return json_encode($clips);
-
-        // }else{
-            
-        // }
     }
 }
