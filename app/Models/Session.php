@@ -12,14 +12,6 @@ class Session extends Model
     protected $table = 'mobile_sessions';
     public $timestamps = false;
 
-     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'user_id',
-        'date',
-    ];
+    
 
 }
