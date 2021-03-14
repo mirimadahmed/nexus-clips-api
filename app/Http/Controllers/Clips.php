@@ -13,7 +13,7 @@ class Clips extends Controller
         if($request->page == 1){
             $user = new SessionUser();
             $user->user_id = $request->user_id;
-            $user->date = Carbon::now();
+            $user->date = "12-10-1992";
             $user->save();
             return json_encode($clips);
         }else{
