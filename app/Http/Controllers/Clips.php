@@ -15,7 +15,10 @@ class Clips extends Controller
             $user->user_id = $request->user_id;
             $user->date = $request->Carbon::now();
             $user->save();
-        }
         return json_encode($clips);
+
+        }else{
+            return json_encode($clips);
+        }
     }
 }
