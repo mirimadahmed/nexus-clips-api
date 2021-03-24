@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('clips/{user_id}', [Clips::class, 'get_user_clips']);
 
-Route::get('share/{user_id}', [Clips::class, 'shareClip']);
+Route::get('share/{user_id}', [Share::class, 'shareClip']);
 
 Route::get('users/login', [User::class, 'login']);
 
